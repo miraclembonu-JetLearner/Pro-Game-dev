@@ -18,6 +18,7 @@ player_y = 200
 
 
 player = pygame.image.load("Aerospace/drone.png")
+player = pygame.transform.scale(player,(50,50))
 background = pygame.image.load("Aerospace/BG.jpg")
 
 
@@ -53,17 +54,17 @@ while True:
             elif event.key == pygame.K_RIGHT:
                 key[3] = False
 
-            if key[0]:
-                if player_y > 0:
-                    player_y -=5
-            elif key[2]:
-                if player_y < 350:
-                    player_y +=5
-            elif key[1]:
-                if player_x > 0:
-                    player_x -=5
-            elif key[3]:
-                if player_x < 350:
-                    player_x +=5
+        if key[0]:
+            if player_y > 0:
+                player_y -=10
+        elif key[2]:
+            if player_y < 350:
+                player_y +=10
+        elif key[1]:
+            if player_x > 0:
+                player_x -=10
+        elif key[3]:
+            if player_x < 350:
+                player_x +=10
 
-pygame.display.update()
+    pygame.display.update()
