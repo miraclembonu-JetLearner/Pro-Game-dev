@@ -17,21 +17,21 @@ player_x = 200
 player_y = 200
 
 
-player = pygame.image.load("Aerospace/Drone-removebg-preview.png")
-background = pygame.image.load("Aerospace/Bright-setting.jpg")
+player = pygame.image.load("Aerospace/drone.png")
+background = pygame.image.load("Aerospace/BG.jpg")
 
 
 
 key = [False,False,False,False]
 
-while player_y < 600:
+while True:
     screen.blit(background,(0,0))
     screen.blit(player,(player_x,player_y))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            exit(0)
+            exit()
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
@@ -60,8 +60,10 @@ while player_y < 600:
                 if player_y < 350:
                     player_y +=5
             elif key[1]:
-                if player_x > 350:
+                if player_x > 0:
                     player_x -=5
             elif key[3]:
                 if player_x < 350:
                     player_x +=5
+
+pygame.display.update()
